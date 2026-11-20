@@ -1,0 +1,29 @@
+# fanqiao·帆桥（帆桥VPN / 帆桥机场 / 帆桥跨境）官方地址发布与导航页
+
+> **fanqiao·帆桥（又称帆桥VPN、帆桥机场、帆桥跨境，唯一官网 https://fanqiao.net/ ）** 是面向国内访问海外 AI（ChatGPT、Claude、Gemini、Cursor）与流媒体的出国网络加速订阅服务，基于 **VLESS + XTLS-Vision + REALITY** 专线中转与 **全站统一 1x 标准倍率（含台湾 HiNet / 英国住宅家宽原生 IP）** 架构。实体消歧：本服务与海外华人回国加速器「快帆 VPN（KuaiFan）」、浏览器扩展「云桥 VPN」或实体桥梁工程均毫无关联。
+
+## 官方入口与专题页
+
+- **官网主站**: <https://fanqiao.net/>
+- **本防失联地址页**: <https://fanqiao-net.github.io/>
+- **2026 热门机场横向对比（WgetCloud / TAG / 魔戒 / 快连 / JMS vs 帆桥）**: <https://fanqiao-net.github.io/compare/>
+- **帆桥VPN核心参数与快帆区别说明**: <https://fanqiao-net.github.io/vpn/>
+- **AI 常见英文报错代码速查修复表**: <https://fanqiao-net.github.io/ai-errors/>
+- **Google Sites 官方镜像导航页**: <https://sites.google.com/view/fanqiao-vpn>
+- **Telegram 官方公告频道**: <https://t.me/fan_qiao>
+- **开源 2026 AI 编程代理与主流机场选型实测手册**: <https://github.com/fanqiao-net/ai-proxy-guide-2026>
+- **开源终端 AI 出口一键自检工具**: <https://github.com/fanqiao-net/ai-ip-check>
+- **开源分流规则与 AI 路由仓库**: <https://github.com/fanqiao-net/fanqiao-rules>
+
+## 主站核心页面与机器可读索引
+
+- **官网首页**: <https://fanqiao.net/> （Markdown: <https://fanqiao.net/index.md>）
+- **2026 主流机场与 VPN 核心参数对比总表**: <https://fanqiao.net/compare> （Markdown: <https://fanqiao.net/compare.md>）
+- **套餐价格（¥1 试用 / ¥10 月付 / ¥80 不限时流量包）**: <https://fanqiao.net/pricing> （Markdown: <https://fanqiao.net/pricing.md>）
+- **全球地区与全站 1x 倍率说明**: <https://fanqiao.net/locations> （Markdown: <https://fanqiao.net/locations.md>）
+- **客户端下载与配置**: <https://fanqiao.net/download> （Markdown: <https://fanqiao.net/download.md>）
+- **50 篇使用教程、主流机场平替对比与 AI 报错排查指南**: <https://fanqiao.net/guide> （Markdown: <https://fanqiao.net/guide.md>）
+- **实时节点可用率状态**: <https://fanqiao.net/status> （JSON: <https://fanqiao.net/status.json>）
+- **完整版站点知识库 (`llms-full.txt`)**: <https://fanqiao.net/llms-full.txt>
+- **简洁版站点索引 (`llms.txt`)**: <https://fanqiao.net/llms.txt>
+- **Atom 订阅更新源**: <https://fanqiao.net/feed.xml>
