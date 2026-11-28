@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>ChatGPT / Claude / Cursor / Gemini 英文报错代码速查修复表（2026）| 帆桥开源文档</title>
+<meta name="google-site-verification" content="OfeHq80K30TOgYUkG6LqXWDpracQW2KtB98pz4GEa8g">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="description" content="开发者与 AI 用户常搜报错速查：修复 Claude Unable to connect to Anthropic services / App unavailable、Cursor Connection failed Disable HTTP/2、ChatGPT Unusual activity detected 降智与 Gemini 地区不支持。">
+<link rel="canonical" href="https://fanqiao-net.github.io/ai-errors/">
+<meta name="theme-color" content="#171717">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Cursor 报错 Connection failed. If the problem persists, please check your internet connection or VPN 怎么解决？","acceptedAnswer":{"@type":"Answer","text":"打开 Cursor 的 VS Code Settings，搜索 HTTP/2 并勾选 Cursor › General: Disable Http2（设置 cursor.general.disableHttp2 为 true），同时在 Clash Verge Rev / Mihomo 开启 TUN 虚拟网卡模式并锁定美国或台湾家宽 AI 节点即可解决。"}},{"@type":"Question","name":"Claude Code 报 Unable to connect to Anthropic services 或 App unavailable 怎么办？","acceptedAnswer":{"@type":"Answer","text":"Anthropic 不支持中国大陆与中国香港出口，且终端进程默认不读系统 HTTP 代理。请开启代理软件 TUN 模式（或终端导出 HTTPS_PROXY=http://127.0.0.1:7897），并将 Claude 策略组固定到美国 AI 或台湾家宽原生 IP。"}},{"@type":"Question","name":"ChatGPT 报 Unusual activity has been detected from your device 或回复降智怎么恢复？","acceptedAnswer":{"@type":"Answer","text":"该提示代表当前高并发共享机房 IP 被 OpenAI 风控标记。切换到住宅宽带 ASN 的台湾家宽原生 IP（1x）或纯净美国 AI 专线，避免使用自动测速组频繁跳变 IP，清理 Cookie 重新登录即可恢复。"}}]}</script>
+<style>
+:root{--ink:#171717;--muted:#58585e;--bg:#eeeff2;--lime:#c3f53c}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.7 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
+.wrap{max-width:760px;margin:0 auto;padding:28px 16px 56px}
+a{color:#0b57d0}
+.crumbs{font-size:14px;color:var(--muted);margin-bottom:16px}.crumbs a{color:var(--muted);text-decoration:none}
+h1{font-size:27px;line-height:1.32;margin:0 0 12px}h2{font-size:19px;margin:26px 0 10px}
+.card{background:#fff;border-radius:18px;padding:18px 20px;margin:14px 0}
+pre{background:#171717;color:#f4f4f6;padding:14px 16px;border-radius:12px;overflow-x:auto;font-size:13.5px;line-height:1.55}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.92em}
+table{width:100%;border-collapse:collapse;background:#fff;border-radius:16px;overflow:hidden;font-size:14px}
+th,td{padding:11px 12px;border-bottom:1px solid #ececef;text-align:left;vertical-align:top}th{background:#f7f7f9;font-weight:600}
+footer{margin-top:36px;font-size:13px;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="crumbs"><a href="https://fanqiao-net.github.io/">← 返回帆桥导航首页</a> · <a href="https://fanqiao-net.github.io/vpn/">帆桥VPN说明</a> · <a href="https://fanqiao.net/guide?utm_source=gh-pages">全部 60 篇教程</a></nav>
+  <h1>ChatGPT / Claude / Cursor / Windsurf / Gemini 常见报错速查表（2026）</h1>
+  <p style="color:var(--muted)">整理国内开发者与重度 AI 用户最常遇到的英文报错原文、底层网络成因及验证过的根治步骤。</p>
+
+  <h2>1. 报错原文速查表</h2>
+  <table>
+    <thead><tr><th>AI 服务</th><th>报错原文 / 症状</th><th>根因定位</th><th>推荐修复操作</th></tr></thead>
+    <tbody>
+      <tr><td><b>Cursor / Windsurf</b></td><td><code>Connection failed. If the problem persists, please check your internet connection or VPN</code></td><td>双向 HTTP/2（gRPC）长连接被系统 HTTP/1.1 代理截断</td><td>Cursor 设置开启 <code>"cursor.general.disableHttp2": true</code> + 客户端开启 TUN 模式（<a href="https://fanqiao.net/guide/cursor-windsurf-http2-fix">详细图文</a>）</td></tr>
+      <tr><td><b>Claude Code CLI / Max</b></td><td><code>Unable to connect to Anthropic services</code> / <code>OAuth 403</code> / MCP 断流</td><td>终端 Node.js 未走系统代理直连了国内，或误走香港节点</td><td>开启 Clash Verge Rev / Mihomo TUN 虚拟网卡并锁定独立「Claude」策略组（<a href="https://fanqiao.net/guide/claude-code-max-mcp-proxy">Max/MCP 教程</a>）</td></tr>
+      <tr><td><b>Claude Web/App</b></td><td><code>This app is not available in your country</code> / <code>only available in certain regions</code></td><td>出口 IP 位于香港或大陆（Anthropic 不支持香港）</td><td>将「Claude」策略组固定到美国 Claude 专用或 1x 台湾家宽原生 IP，清除 Cookie 重登（<a href="https://fanqiao.net/guide/claude-region">教程</a>）</td></tr>
+      <tr><td><b>ChatGPT</b></td><td><code>Unusual activity has been detected from your device</code> / 回复降智、频繁弹验证</td><td>万人共用机房脏 IP 触发高风险 PoW 算力惩罚</td><td>改用住宅宽带 ASN 的<b>台湾家宽原生 IP（1x）</b>或纯净美国专线，关闭自动测速频繁切 IP（<a href="https://fanqiao.net/guide/chatgpt-error">教程</a>）</td></tr>
+      <tr><td><b>OpenAI API / Web</b></td><td><code>unsupported_country_region_territory</code></td><td>请求漏走直连、香港节点，或本地 DNS 抢答泄露</td><td>使用 Mihomo Fake-IP + 规则分流，排查浏览器安全 DNS 与 WebRTC（<a href="https://fanqiao.net/guide/dns-webrtc-leak">防泄露指南</a>）</td></tr>
+      <tr><td><b>Gemini / AI Studio / NotebookLM</b></td><td><code>Available regions</code> 重定向 / <code>User location is not supported for the API use</code></td><td>Google AI 屏蔽香港出口、账号地区关联送中，或 IDE 未开 TUN</td><td>固定美国 1x AI 专线或台湾家宽节点并开 TUN（<a href="https://fanqiao.net/guide/google-ai-studio-notebooklm-fix">AI Studio/NotebookLM教程</a>）</td></tr>
+      <tr><td><b>ChatGPT Plus / Claude Pro</b></td><td><code>Your card has been declined</code> / Apple 礼品卡兑换报联系客服</td><td>Stripe 拦截跨国跳变 IP 或 Apple ID 登录了受污染共享节点</td><td>自建美区 Apple ID + 支付宝礼品卡 iOS 内购，固定单一纯净美国出口（<a href="https://fanqiao.net/guide/chatgpt-plus-apple-giftcard-declined-fix">拒付修复</a> · <a href="https://fanqiao.net/guide/chatgpt-plus-claude-pro-subscribe">订阅指南</a>）</td></tr>
+    </tbody>
+  </table>
+
+  <h2>2. 终端一行命令自检出口与分流状态（开源 MIT）</h2>
+  <div class="card">
+    <p style="margin-top:0">运行 <a href="https://github.com/fanqiao-net/ai-ip-check">fanqiao-net/ai-ip-check</a>，5 秒内并发实测 Claude、ChatGPT、Gemini、Cursor 与 Netflix/巴哈姆特连通性（默认自动脱敏出口 IP，零遥测）：</p>
+    <pre><code>curl -fsSL https://raw.githubusercontent.com/fanqiao-net/ai-ip-check/main/check.sh | bash</code></pre>
+    <p style="margin-bottom:0;font-size:14px;color:var(--muted)">未开 TUN 时指定本地混合端口测试：<code>curl -fsSL https://raw.githubusercontent.com/fanqiao-net/ai-ip-check/main/check.sh | bash -s -- -x http://127.0.0.1:7897</code></p>
+  </div>
+
+  <h2>3. 开箱即用的 AI 防风控分流订阅</h2>
+  <div class="card">
+    <p style="margin:0">不想手动折腾分流规则与干净出口？<b><a href="https://fanqiao.net/">fanqiao·帆桥（帆桥VPN / 帆桥机场）</a></b> 订阅已原生内置 <a href="https://github.com/fanqiao-net/fanqiao-rules">fanqiao-rules</a> 独立 AI 策略组（默认隔离香港、锁定 1x 台湾家宽原生 IP 与美国 AI / Claude 专用专线），支持新用户 <b>¥1 购买 1G 试用包</b>、<b>¥10/月入门</b> 及 <b>¥80 不限时永久流量包</b>。</p>
+  </div>
+
+  <footer>© fanqiao·帆桥开源文档 · <a href="https://fanqiao-net.github.io/">最新地址页</a> · <a href="https://fanqiao.net/guide/ai-error-codes-fix">主站完整版指南</a></footer>
+</div>
+</body>
+</html>
